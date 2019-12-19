@@ -22,6 +22,7 @@ class MoviewDetailViewModel {
     @Published var web: String?
     @Published var posterPath: String?
     @Published var plot: String?
+    @Published var canOpenWeb:Bool = false
     
     required init(movie:Movie){
         self.movie = movie
@@ -49,7 +50,8 @@ class MoviewDetailViewModel {
         self.date = movie.released
         self.genre = movie.genre
         self.duration = movie.runtime
-        self.web = movie.website
+        self.web = movie.website //test functionality "https://apple.com"
         self.plot = movie.plot
+        self.canOpenWeb = self.web?.isValidURL ?? false
     }
 }

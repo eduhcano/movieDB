@@ -58,7 +58,6 @@ class SearchMovieViewModel {
             case .failure(let error):
                 switch error {
                 case NetworkError.decodingFailed:
-                    print ("No encontrado, hemos llegado al final")
                     self.allFound = true
                     completion(nil)
                 default:

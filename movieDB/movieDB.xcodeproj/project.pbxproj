@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		341A902423AC0DCA00EC1E54 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A902323AC0DCA00EC1E54 /* MovieDetailViewModel.swift */; };
 		341A902723AC28DC00EC1E54 /* UItableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A902623AC28DC00EC1E54 /* UItableView+Utils.swift */; };
+		341A902A23AC369E00EC1E54 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A902923AC369E00EC1E54 /* String+Utils.swift */; };
 		34241AFA23AC07B800DEAD89 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34241AF923AC07B800DEAD89 /* MovieDetailViewController.swift */; };
 		3431667F23ABF3E00004DD11 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431667E23ABF3E00004DD11 /* Service.swift */; };
 		3431668123ABF3F80004DD11 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431668023ABF3F80004DD11 /* ServiceProvider.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		341A902323AC0DCA00EC1E54 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		341A902623AC28DC00EC1E54 /* UItableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UItableView+Utils.swift"; sourceTree = "<group>"; };
+		341A902923AC369E00EC1E54 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		34241AF923AC07B800DEAD89 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		3431667E23ABF3E00004DD11 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3431668023ABF3F80004DD11 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				3431668D23ABFE5E0004DD11 /* UIImageView+Utils.swift */,
 				341A902623AC28DC00EC1E54 /* UItableView+Utils.swift */,
+				341A902923AC369E00EC1E54 /* String+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				3431668E23ABFE5E0004DD11 /* UIImageView+Utils.swift in Sources */,
 				34870CF223ABEB8F00E42E4B /* AppDelegate.swift in Sources */,
 				34241AFA23AC07B800DEAD89 /* MovieDetailViewController.swift in Sources */,
+				341A902A23AC369E00EC1E54 /* String+Utils.swift in Sources */,
 				341A902423AC0DCA00EC1E54 /* MovieDetailViewModel.swift in Sources */,
 				3431668923ABF8050004DD11 /* Movie.swift in Sources */,
 				3431668123ABF3F80004DD11 /* ServiceProvider.swift in Sources */,
