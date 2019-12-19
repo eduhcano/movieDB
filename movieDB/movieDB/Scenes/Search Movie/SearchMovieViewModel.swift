@@ -13,6 +13,7 @@ class SearchMovieViewModel {
     
     // MARK: - Constants
     let title = "MovieDB"
+    let minSearchChars = 3
     
     // MARK: - Vars
     var data = PassthroughSubject<[Movie], Never>()
@@ -38,7 +39,7 @@ class SearchMovieViewModel {
         currentSearchText = searchText
         currentPage = page
         
-        guard searchText.count>2 else{
+        guard searchText.count >= minSearchChars else{
             self.data.send([])
             return
         }

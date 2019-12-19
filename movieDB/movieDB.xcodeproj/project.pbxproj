@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		341A902423AC0DCA00EC1E54 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A902323AC0DCA00EC1E54 /* MovieDetailViewModel.swift */; };
+		341A902723AC28DC00EC1E54 /* UItableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A902623AC28DC00EC1E54 /* UItableView+Utils.swift */; };
 		34241AFA23AC07B800DEAD89 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34241AF923AC07B800DEAD89 /* MovieDetailViewController.swift */; };
 		3431667F23ABF3E00004DD11 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431667E23ABF3E00004DD11 /* Service.swift */; };
 		3431668123ABF3F80004DD11 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431668023ABF3F80004DD11 /* ServiceProvider.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		341A902323AC0DCA00EC1E54 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		341A902623AC28DC00EC1E54 /* UItableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UItableView+Utils.swift"; sourceTree = "<group>"; };
 		34241AF923AC07B800DEAD89 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		3431667E23ABF3E00004DD11 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3431668023ABF3F80004DD11 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -64,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		341A902523AC28C700EC1E54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3431668D23ABFE5E0004DD11 /* UIImageView+Utils.swift */,
+				341A902623AC28DC00EC1E54 /* UItableView+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		34241AF823AC078500DEAD89 /* Movie Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,9 +157,9 @@
 		34870D0B23ABF27D00E42E4B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				341A902523AC28C700EC1E54 /* Extensions */,
 				34870D0D23ABF2A100E42E4B /* Network.swift */,
 				3431667E23ABF3E00004DD11 /* Service.swift */,
-				3431668D23ABFE5E0004DD11 /* UIImageView+Utils.swift */,
 				3431668023ABF3F80004DD11 /* ServiceProvider.swift */,
 			);
 			path = Common;
@@ -311,6 +322,7 @@
 				34870CF423ABEB8F00E42E4B /* SceneDelegate.swift in Sources */,
 				34870D0823ABEC4100E42E4B /* SearchMovieViewController.swift in Sources */,
 				34870D0A23ABEEA400E42E4B /* SearchMovieViewModel.swift in Sources */,
+				341A902723AC28DC00EC1E54 /* UItableView+Utils.swift in Sources */,
 				3431667F23ABF3E00004DD11 /* Service.swift in Sources */,
 				3431668323ABF44B0004DD11 /* OMDBService.swift in Sources */,
 			);
