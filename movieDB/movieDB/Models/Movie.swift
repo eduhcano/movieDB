@@ -13,6 +13,8 @@ struct Movie:Codable,Hashable {
     let imdbID:String
     let title:String
     let year:String?
+    let released:String?
+    let runtime:String?
     let poster:String?
     let genre:String?
     let website:String?
@@ -22,6 +24,8 @@ struct Movie:Codable,Hashable {
         case imdbID
         case title = "Title"
         case year = "Year"
+        case released = "Released"
+        case runtime = "Runtime"
         case poster = "Poster"
         case genre = "Genre"
         case website = "Website"

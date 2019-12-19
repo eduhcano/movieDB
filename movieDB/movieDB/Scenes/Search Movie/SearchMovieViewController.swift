@@ -26,17 +26,23 @@ class SearchMovieViewController: UIViewController {
     private var pendingRequestWorkItem: DispatchWorkItem? //Cancellable Search workItem
     var subscriptions = [AnyCancellable]()
 
-    // MARK: - Setup
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
         setupView()
         setupTable()
         bindViewModel()
+        updateEmptyTableView()
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     
+    // MARK: - Setup
     private func setupView(){
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = viewModel.title
@@ -46,7 +52,7 @@ class SearchMovieViewController: UIViewController {
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Movies"
+        searchController.searchBar.placeholder = "Introduce titulo..."
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
@@ -63,8 +69,23 @@ class SearchMovieViewController: UIViewController {
             cell.setMovie(model)
         }))
         .store(in: &subscriptions)
+        
+        subscriptions.append(
+            viewModel.data.sink { (allMovies) in
+                self.updateEmptyTableView()
+            })
     }
-
+    
+    private func updateEmptyTableView(){
+        if viewModel.foundMovies.count > 0{
+            self.tableView.restore()
+        }else{
+            let enoughChars = self.viewModel.currentSearchText.count >= self.viewModel.minSearchChars
+            let title = enoughChars ? "Vaya....":"Buscar pelicula"
+            let message = enoughChars ? "Parece que has buscado una peli muy rara":"Introduce al menos 3 letras para buscar"
+            self.tableView.setEmptyView(title: title, message: message )
+        }
+    }
 }
 
 extension SearchMovieViewController: UISearchResultsUpdating {
@@ -77,8 +98,8 @@ extension SearchMovieViewController: UISearchResultsUpdating {
     // Wrap our request in a work item
     let requestWorkItem = DispatchWorkItem { [weak self] in
         if let searchText = self?.searchController.searchBar.text,searchText != self?.viewModel.currentSearchText  {
-           
             self?.viewModel.searchMovies(searchText: searchText, completion: { (err) in
+                self?.updateEmptyTableView()
                 if let error = err{
                     let alertController = UIAlertController(title: "Error", message:
                                       error.localizedDescription, preferredStyle: .alert)
@@ -86,7 +107,6 @@ extension SearchMovieViewController: UISearchResultsUpdating {
 
                     self?.present(alertController, animated: true, completion: nil)
                 }
-              
             })
         }
     }
@@ -103,11 +123,11 @@ extension SearchMovieViewController: UISearchResultsUpdating {
 
 extension SearchMovieViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedMovie = viewModel.foundMovies[indexPath.row]
-//        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
-//        let VM = MoviewDetailViewModel(movie: selectedMovie)
-//        viewController.viewModel = VM
-//        navigationController?.pushViewController(viewController, animated: true)
+        let selectedMovie = viewModel.foundMovies[indexPath.row]
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
+        let VM = MoviewDetailViewModel(movie: selectedMovie)
+        viewController.viewModel = VM
+        navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: false)
     }
 }
