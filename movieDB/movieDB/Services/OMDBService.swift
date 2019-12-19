@@ -40,6 +40,7 @@ extension OMDBService: Service {
             
         case .getMovie(let imdbID):
             params["i"] = imdbID
+            params["plot"] = "full"
         }
         return params
     }

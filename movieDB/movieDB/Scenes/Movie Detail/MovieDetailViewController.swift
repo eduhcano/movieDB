@@ -30,6 +30,7 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = false
         super.viewDidLoad()
+        posterImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
         bindViewModel()
         viewModel?.updateSelectedMovie()
     }
@@ -63,9 +64,31 @@ class MovieDetailViewController: UIViewController {
 
     }
     
-    func shareWeb(_ websiteUrl:String){
+     @objc func imageTapped(_ recognizer: UITapGestureRecognizer) {
+        guard let imageview = recognizer.view as? UIImageView else {return}
+        guard let image = imageview.image else {return}
+        
+        let newImageView = UIImageView(image: image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.backgroundColor = newImageView.backgroundColor?.withAlphaComponent(0.8)
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+          self.view.addSubview(newImageView)
+        }, completion: nil)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
 
-       
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+          sender.view?.removeFromSuperview()
+        }, completion: nil)
     }
 
 }
