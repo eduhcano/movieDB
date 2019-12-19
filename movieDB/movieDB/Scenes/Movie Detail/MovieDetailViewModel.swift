@@ -46,7 +46,10 @@ class MoviewDetailViewModel {
         
         self.title = movie.title
         self.posterPath = movie.poster
-//        self.year = movie.year
+        self.date = movie.released
+        self.genre = movie.genre
+        self.duration = movie.runtime
+        self.web = movie.website
         self.plot = movie.plot
     }
 }

@@ -15,7 +15,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var durationLabel: UIView!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var webLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var plotTextView: UITextView!
@@ -38,6 +38,10 @@ class MovieDetailViewController: UIViewController {
         guard let vm = viewModel else {return}
         
         vm.$title.receive(on: DispatchQueue.main).assign(to:\.text, on: titleLabel).store(in: &subscribers)
+        vm.$genre.receive(on: DispatchQueue.main).assign(to:\.text, on: genreLabel).store(in: &subscribers)
+        vm.$date.receive(on: DispatchQueue.main).assign(to:\.text, on: dateLabel).store(in: &subscribers)
+        vm.$duration.receive(on: DispatchQueue.main).assign(to:\.text, on: durationLabel).store(in: &subscribers)
+        vm.$web.receive(on: DispatchQueue.main).assign(to:\.text, on: webLabel).store(in: &subscribers)
         vm.$plot.receive(on: DispatchQueue.main).assign(to:\.text, on: plotTextView).store(in: &subscribers)
         subscribers.insert(vm.$posterPath.sink { (posterPath) in
             if let path = posterPath{

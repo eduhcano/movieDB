@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pk0-gG-DMn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pk0-gG-DMn">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -136,7 +136,7 @@
                                                     <constraint firstAttribute="width" secondItem="Z8S-Zo-YbB" secondAttribute="height" multiplier="60:89" id="eUh-NP-U60"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsA-yF-6gZ">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsA-yF-6gZ">
                                                 <rect key="frame" x="20" y="607.5" width="335" height="162.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis </string>
@@ -192,7 +192,7 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="dateLabel" destination="0Tj-sU-ZBo" id="HyJ-Cb-O3Z"/>
-                        <outlet property="durationLabel" destination="MY4-3c-azT" id="dvz-nQ-Sfq"/>
+                        <outlet property="durationLabel" destination="bTG-rn-bcu" id="Zaq-cw-Fxa"/>
                         <outlet property="genreLabel" destination="9DC-fz-FOM" id="vm3-4p-mOY"/>
                         <outlet property="plotTextView" destination="xsA-yF-6gZ" id="xTZ-RN-oiC"/>
                         <outlet property="posterImageView" destination="Z8S-Zo-YbB" id="5RG-bw-zii"/>
