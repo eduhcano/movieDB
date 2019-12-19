@@ -26,7 +26,7 @@ class SearchMovieViewController: UIViewController {
     private var pendingRequestWorkItem: DispatchWorkItem? //Cancellable Search workItem
     var subscriptions = [AnyCancellable]()
 
-    // MARK: - Setup
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
@@ -36,7 +36,12 @@ class SearchMovieViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     
+    // MARK: - Setup
     private func setupView(){
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = viewModel.title
@@ -103,11 +108,11 @@ extension SearchMovieViewController: UISearchResultsUpdating {
 
 extension SearchMovieViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedMovie = viewModel.foundMovies[indexPath.row]
-//        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
-//        let VM = MoviewDetailViewModel(movie: selectedMovie)
-//        viewController.viewModel = VM
-//        navigationController?.pushViewController(viewController, animated: true)
+        let selectedMovie = viewModel.foundMovies[indexPath.row]
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
+        let VM = MoviewDetailViewModel(movie: selectedMovie)
+        viewController.viewModel = VM
+        navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: false)
     }
 }

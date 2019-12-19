@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341A902423AC0DCA00EC1E54 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A902323AC0DCA00EC1E54 /* MovieDetailViewModel.swift */; };
+		34241AFA23AC07B800DEAD89 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34241AF923AC07B800DEAD89 /* MovieDetailViewController.swift */; };
 		3431667F23ABF3E00004DD11 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431667E23ABF3E00004DD11 /* Service.swift */; };
 		3431668123ABF3F80004DD11 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431668023ABF3F80004DD11 /* ServiceProvider.swift */; };
 		3431668323ABF44B0004DD11 /* OMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431668223ABF44B0004DD11 /* OMDBService.swift */; };
-		3431668623ABF7400004DD11 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 3431668523ABF7400004DD11 /* SwiftPackageProductDependency */; };
+		3431668623ABF7400004DD11 /* CombineDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3431668523ABF7400004DD11 /* CombineDataSources */; };
 		3431668923ABF8050004DD11 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431668823ABF8050004DD11 /* Movie.swift */; };
 		3431668C23ABFA800004DD11 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431668B23ABFA800004DD11 /* MovieTableViewCell.swift */; };
 		3431668E23ABFE5E0004DD11 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431668D23ABFE5E0004DD11 /* UIImageView+Utils.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341A902323AC0DCA00EC1E54 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		34241AF923AC07B800DEAD89 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		3431667E23ABF3E00004DD11 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3431668023ABF3F80004DD11 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		3431668223ABF44B0004DD11 /* OMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBService.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3431668623ABF7400004DD11 /* BuildFile in Frameworks */,
+				3431668623ABF7400004DD11 /* CombineDataSources in Frameworks */,
 				8E56281886350FE7C0609D63 /* Pods_movieDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34241AF823AC078500DEAD89 /* Movie Detail */ = {
+			isa = PBXGroup;
+			children = (
+				34241AF923AC07B800DEAD89 /* MovieDetailViewController.swift */,
+				341A902323AC0DCA00EC1E54 /* MovieDetailViewModel.swift */,
+			);
+			path = "Movie Detail";
+			sourceTree = "<group>";
+		};
 		3431668723ABF7F00004DD11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +127,7 @@
 		34870D0523ABEBFC00E42E4B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				34241AF823AC078500DEAD89 /* Movie Detail */,
 				34870D0623ABEC1000E42E4B /* Search Movie */,
 			);
 			path = Scenes;
@@ -154,7 +168,6 @@
 				D8CE10499FE5E7D55E988D32 /* Pods-movieDB.debug.xcconfig */,
 				BC96D567E9929D48F834058D /* Pods-movieDB.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -185,7 +198,7 @@
 			);
 			name = movieDB;
 			packageProductDependencies = (
-				3431668523ABF7400004DD11 /* SwiftPackageProductDependency */,
+				3431668523ABF7400004DD11 /* CombineDataSources */,
 			);
 			productName = movieDB;
 			productReference = 34870CEE23ABEB8F00E42E4B /* movieDB.app */;
@@ -216,7 +229,7 @@
 			);
 			mainGroup = 34870CE523ABEB8F00E42E4B;
 			packageReferences = (
-				3431668423ABF7400004DD11 /* RemoteSwiftPackageReference */,
+				3431668423ABF7400004DD11 /* XCRemoteSwiftPackageReference "CombineDataSources" */,
 			);
 			productRefGroup = 34870CEF23ABEB8F00E42E4B /* Products */;
 			projectDirPath = "";
@@ -291,6 +304,8 @@
 				34870D0E23ABF2A100E42E4B /* Network.swift in Sources */,
 				3431668E23ABFE5E0004DD11 /* UIImageView+Utils.swift in Sources */,
 				34870CF223ABEB8F00E42E4B /* AppDelegate.swift in Sources */,
+				34241AFA23AC07B800DEAD89 /* MovieDetailViewController.swift in Sources */,
+				341A902423AC0DCA00EC1E54 /* MovieDetailViewModel.swift in Sources */,
 				3431668923ABF8050004DD11 /* Movie.swift in Sources */,
 				3431668123ABF3F80004DD11 /* ServiceProvider.swift in Sources */,
 				34870CF423ABEB8F00E42E4B /* SceneDelegate.swift in Sources */,
@@ -499,7 +514,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3431668423ABF7400004DD11 /* RemoteSwiftPackageReference */ = {
+		3431668423ABF7400004DD11 /* XCRemoteSwiftPackageReference "CombineDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/combineopensource/CombineDataSources";
 			requirement = {
@@ -510,9 +525,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3431668523ABF7400004DD11 /* SwiftPackageProductDependency */ = {
+		3431668523ABF7400004DD11 /* CombineDataSources */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3431668423ABF7400004DD11 /* RemoteSwiftPackageReference */;
+			package = 3431668423ABF7400004DD11 /* XCRemoteSwiftPackageReference "CombineDataSources" */;
 			productName = CombineDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
