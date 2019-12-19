@@ -41,6 +41,7 @@ class SearchMovieViewModel {
         
         guard searchText.count >= minSearchChars else{
             self.data.send([])
+            completion(nil)
             return
         }
         

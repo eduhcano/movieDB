@@ -88,9 +88,11 @@ class SearchMovieViewController: UIViewController {
     }
 }
 
+
+// MARK: - SearchResultsUpdating
+
 extension SearchMovieViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    
     
     // Cancel the currently pending item
     pendingRequestWorkItem?.cancel()
@@ -98,7 +100,9 @@ extension SearchMovieViewController: UISearchResultsUpdating {
     // Wrap our request in a work item
     let requestWorkItem = DispatchWorkItem { [weak self] in
         if let searchText = self?.searchController.searchBar.text,searchText != self?.viewModel.currentSearchText  {
+            searchController.searchBar.isLoading = true
             self?.viewModel.searchMovies(searchText: searchText, completion: { (err) in
+                searchController.searchBar.isLoading = false
                 self?.updateEmptyTableView()
                 if let error = err{
                     let alertController = UIAlertController(title: "Error", message:
