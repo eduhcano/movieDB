@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Result<T> {
     case success(T)
@@ -46,6 +47,13 @@ class ServiceProvider<T: Service> {
 
 extension ServiceProvider {
     private func call(_ request: URLRequest, deliverQueue: DispatchQueue = DispatchQueue.main, completion: @escaping (Result<Data>) -> Void) {
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+           guard appDelegate.isConnectedToInternet else {
+               completion(.failure(NetworkError.noNetwork))
+               return
+           }
+       }
         
         urlSession.dataTask(with: request) { (data, _, error) in
             if let error = error {
