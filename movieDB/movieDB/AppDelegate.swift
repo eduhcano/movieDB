@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let reachability = try! Reachability()
+    var isConnectedToInternet = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        configureReachability()
         return true
     }
 
@@ -35,3 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//Reachability
+extension AppDelegate{
+    
+    func configureReachability(){
+        reachability.whenReachable = { reachability in
+            self.isConnectedToInternet = true
+        }
+        reachability.whenUnreachable = { _ in
+            self.isConnectedToInternet = false
+        }
+
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+}
