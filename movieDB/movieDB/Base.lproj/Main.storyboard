@@ -18,6 +18,54 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pk0-gG-DMn">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCellIdentifier" rowHeight="127" id="Jjr-Fd-f3l" customClass="MovieTableViewCell" customModule="movieDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjr-Fd-f3l" id="jHI-E6-4aC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zcM-Tc-SHG">
+                                                    <rect key="frame" x="10" y="10" width="75" height="107"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="UtR-Wq-xNW"/>
+                                                        <constraint firstAttribute="height" constant="111" id="s9a-3o-qiC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU6-cb-uAK">
+                                                    <rect key="frame" x="95" y="10" width="309" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJS-Mw-eNu">
+                                                    <rect key="frame" x="95" y="44" width="309" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zcM-Tc-SHG" firstAttribute="top" secondItem="jHI-E6-4aC" secondAttribute="top" constant="10" id="Bxb-lh-Uqh"/>
+                                                <constraint firstItem="zcM-Tc-SHG" firstAttribute="leading" secondItem="jHI-E6-4aC" secondAttribute="leading" constant="10" id="CgT-XE-Bx9"/>
+                                                <constraint firstItem="FJS-Mw-eNu" firstAttribute="top" secondItem="rU6-cb-uAK" secondAttribute="bottom" constant="10" id="Gyj-d2-lVc"/>
+                                                <constraint firstItem="rU6-cb-uAK" firstAttribute="top" secondItem="zcM-Tc-SHG" secondAttribute="top" id="NU8-Lp-x0O"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zcM-Tc-SHG" secondAttribute="bottom" constant="10" id="RfJ-W5-bEk"/>
+                                                <constraint firstAttribute="trailing" secondItem="rU6-cb-uAK" secondAttribute="trailing" constant="10" id="f8B-OQ-PeC"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FJS-Mw-eNu" secondAttribute="bottom" constant="10" id="j0I-yT-SOO"/>
+                                                <constraint firstItem="FJS-Mw-eNu" firstAttribute="leading" secondItem="zcM-Tc-SHG" secondAttribute="trailing" constant="10" id="kvg-na-QwX"/>
+                                                <constraint firstAttribute="trailing" secondItem="FJS-Mw-eNu" secondAttribute="trailing" constant="10" id="rd5-er-xqK"/>
+                                                <constraint firstItem="rU6-cb-uAK" firstAttribute="leading" secondItem="zcM-Tc-SHG" secondAttribute="trailing" constant="10" id="vAL-7Y-SEP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="zcM-Tc-SHG" id="PGd-54-THU"/>
+                                            <outlet property="titleLabel" destination="rU6-cb-uAK" id="UQD-pR-lxa"/>
+                                            <outlet property="yearLabel" destination="FJS-Mw-eNu" id="VRr-Mr-g4o"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
