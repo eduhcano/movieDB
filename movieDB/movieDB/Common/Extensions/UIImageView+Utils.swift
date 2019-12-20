@@ -10,16 +10,21 @@ import UIKit
 
 
 extension UIImageView {
-    func setImage(from url: String) {
+    func setImage(from url: String,completion:@escaping(_  image:UIImage?)->()) {
         guard let imageURL = URL(string: url) else { return }
 
             // just not to cause a deadlock in UI!
         DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+            guard let imageData = try? Data(contentsOf: imageURL) else {
+                completion(nil)
+                return
+                
+            }
 
             let image = UIImage(data: imageData)
             DispatchQueue.main.async {
                 self.image = image
+                completion(image)
             }
         }
     }

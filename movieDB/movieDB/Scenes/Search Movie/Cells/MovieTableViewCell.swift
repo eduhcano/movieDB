@@ -42,7 +42,9 @@ class MovieTableViewCell: UITableViewCell {
     func setMovie(_ movie:Movie){
         titleLabel.text = movie.title
         yearLabel.text = movie.year
-        posterImageView.setImage(from: movie.poster ?? "")
+        posterImageView.setImage(from: movie.poster ?? ""){_ in 
+            
+        }
     }
 
 }

@@ -158,6 +158,23 @@
                                                     <action selector="shareWebAction:" destination="nji-VG-C5v" eventType="touchUpInside" id="QQZ-Df-fDq"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KME-OE-SmL">
+                                                <rect key="frame" x="301" y="573" width="44" height="44"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.79061429790000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="NyK-pB-kRb"/>
+                                                    <constraint firstAttribute="height" constant="44" id="omv-9T-TMN"/>
+                                                </constraints>
+                                                <state key="normal" image="square.and.arrow.down" catalog="system"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="22"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveImageAction:" destination="nji-VG-C5v" eventType="touchUpInside" id="F0C-qe-e4P"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -166,6 +183,7 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u92-7L-pox" secondAttribute="trailing" constant="10" id="DIH-72-Dp7"/>
                                             <constraint firstItem="9DC-fz-FOM" firstAttribute="top" secondItem="QyJ-CD-T93" secondAttribute="bottom" constant="6" id="GHa-WC-fmS"/>
                                             <constraint firstAttribute="trailing" secondItem="Z8S-Zo-YbB" secondAttribute="trailing" constant="20" id="IuW-Jm-548"/>
+                                            <constraint firstItem="xsA-yF-6gZ" firstAttribute="top" secondItem="KME-OE-SmL" secondAttribute="bottom" constant="20" id="JXx-Jf-fyc"/>
                                             <constraint firstItem="Z8S-Zo-YbB" firstAttribute="top" secondItem="0l6-UK-pGB" secondAttribute="bottom" constant="10" id="Jwb-KA-AZf"/>
                                             <constraint firstItem="bTG-rn-bcu" firstAttribute="top" secondItem="9DC-fz-FOM" secondAttribute="bottom" constant="6" id="Nzz-0q-JAb"/>
                                             <constraint firstItem="0Tj-sU-ZBo" firstAttribute="top" secondItem="9DC-fz-FOM" secondAttribute="bottom" constant="6" id="PAP-g6-1KI"/>
@@ -181,6 +199,7 @@
                                             <constraint firstAttribute="trailing" secondItem="QyJ-CD-T93" secondAttribute="trailing" constant="20" id="jhs-15-MSM"/>
                                             <constraint firstItem="xsA-yF-6gZ" firstAttribute="leading" secondItem="MY4-3c-azT" secondAttribute="leading" constant="20" id="k2A-uu-rqu"/>
                                             <constraint firstItem="0l6-UK-pGB" firstAttribute="leading" secondItem="MY4-3c-azT" secondAttribute="leading" constant="20" id="nHe-Ln-bKH"/>
+                                            <constraint firstAttribute="trailing" secondItem="KME-OE-SmL" secondAttribute="trailing" constant="30" id="ohc-PD-NDD"/>
                                             <constraint firstAttribute="trailing" secondItem="9DC-fz-FOM" secondAttribute="trailing" constant="10" id="p2P-Su-Br7"/>
                                             <constraint firstItem="9DC-fz-FOM" firstAttribute="leading" secondItem="MY4-3c-azT" secondAttribute="leading" constant="20" id="vdS-hB-wmm"/>
                                             <constraint firstItem="QyJ-CD-T93" firstAttribute="leading" secondItem="MY4-3c-azT" secondAttribute="leading" constant="20" id="zGG-6a-0G7"/>
@@ -213,6 +232,7 @@
                         <outlet property="genreLabel" destination="9DC-fz-FOM" id="vm3-4p-mOY"/>
                         <outlet property="plotTextView" destination="xsA-yF-6gZ" id="xTZ-RN-oiC"/>
                         <outlet property="posterImageView" destination="Z8S-Zo-YbB" id="5RG-bw-zii"/>
+                        <outlet property="saveImageButton" destination="KME-OE-SmL" id="joe-1Y-rEp"/>
                         <outlet property="shareButton" destination="u92-7L-pox" id="Ene-iq-qUU"/>
                         <outlet property="titleLabel" destination="QyJ-CD-T93" id="sAl-ft-gYT"/>
                         <outlet property="webLabel" destination="0l6-UK-pGB" id="OZy-VP-ceK"/>
@@ -242,6 +262,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.down" catalog="system" width="60" height="64"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
 </document>

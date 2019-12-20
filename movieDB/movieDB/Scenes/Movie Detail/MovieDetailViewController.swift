@@ -20,6 +20,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var plotTextView: UITextView!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var saveImageButton: UIButton!
     
     // MARK: - Vars
     var viewModel: MoviewDetailViewModel?
@@ -48,7 +49,9 @@ class MovieDetailViewController: UIViewController {
         vm.$canOpenWeb.receive(on: DispatchQueue.main).assign(to:\.isEnabled, on: shareButton).store(in: &subscribers)
         subscribers.insert(vm.$posterPath.sink { (posterPath) in
             if let path = posterPath{
-                self.posterImageView.setImage(from: path)
+                self.posterImageView.setImage(from: path) { (image) in
+                    self.saveImageButton.isHidden = image == nil
+                }
             }
         })
     }
@@ -64,7 +67,25 @@ class MovieDetailViewController: UIViewController {
 
     }
     
-     @objc func imageTapped(_ recognizer: UITapGestureRecognizer) {
+    @IBAction func saveImageAction(_ sender: Any) {
+        print("Save")
+        UIImageWriteToSavedPhotosAlbum(posterImageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            let ac = UIAlertController(title: "Error guardando imagen", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Guardado!", message: "El poster de la pelicula se ha guardado en tu carrete", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
+    
+    @objc func imageTapped(_ recognizer: UITapGestureRecognizer) {
         guard let imageview = recognizer.view as? UIImageView else {return}
         guard let image = imageview.image else {return}
         
