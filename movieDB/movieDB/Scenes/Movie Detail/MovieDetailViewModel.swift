@@ -29,15 +29,17 @@ class MoviewDetailViewModel {
         self.title = movie.title
     }
     
-    func updateSelectedMovie(){
+    func updateSelectedMovie(completion:@escaping(_  error:Error?)->()){
         let provider = ServiceProvider<OMDBService>()
         provider.load(service: .getMovie(imdbID: movie.imdbID), decodeType: Movie.self){ result in
             switch result {
             case .success(let updatedMovie):
                 self.movie = updatedMovie
+                completion(nil)
             case .failure(let error):
-                print(error.localizedDescription)
+                completion(error)
             case .empty:
+                completion(nil)
                 print("No data")
             }
         }

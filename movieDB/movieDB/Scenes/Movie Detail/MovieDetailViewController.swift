@@ -33,7 +33,15 @@ class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
         posterImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
         bindViewModel()
-        viewModel?.updateSelectedMovie()
+        viewModel?.updateSelectedMovie(completion: { (err) in
+            if let error = err{
+                let alertController = UIAlertController(title: "Error", message:
+                                  error.localizedDescription, preferredStyle: .alert)
+                              alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+
+                self.present(alertController, animated: true, completion: nil)
+            }
+        })
     }
     
     // MARK: - Setup
@@ -50,7 +58,9 @@ class MovieDetailViewController: UIViewController {
         subscribers.insert(vm.$posterPath.sink { (posterPath) in
             if let path = posterPath{
                 self.posterImageView.setImage(from: path) { (image) in
-                    self.saveImageButton.isHidden = image == nil
+                    DispatchQueue.main.async {
+                        self.saveImageButton.isHidden = image == nil
+                    }
                 }
             }
         })
